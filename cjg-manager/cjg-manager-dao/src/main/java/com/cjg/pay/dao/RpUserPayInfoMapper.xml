@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.RpUserPayInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpUserPayInfo" >
+    <id column="id_" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="app_id" property="appId" jdbcType="VARCHAR" />
+    <result column="app_sectet" property="appSectet" jdbcType="VARCHAR" />
+    <result column="merchant_id" property="merchantId" jdbcType="VARCHAR" />
+    <result column="app_type" property="appType" jdbcType="VARCHAR" />
+    <result column="user_no" property="userNo" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="partner_key" property="partnerKey" jdbcType="VARCHAR" />
+    <result column="pay_way_code" property="payWayCode" jdbcType="VARCHAR" />
+    <result column="pay_way_name" property="payWayName" jdbcType="VARCHAR" />
+    <result column="offline_app_id" property="offlineAppId" jdbcType="VARCHAR" />
+    <result column="rsa_private_key" property="rsaPrivateKey" jdbcType="VARCHAR" />
+    <result column="rsa_public_key" property="rsaPublicKey" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id_, create_time, edit_time, version, remark, status, app_id, app_sectet, merchant_id, 
+    app_type, user_no, user_name, partner_key, pay_way_code, pay_way_name, offline_app_id, 
+    rsa_private_key, rsa_public_key
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from rp_user_pay_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from rp_user_pay_info
+    where id_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from rp_user_pay_info
+    where id_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" >
+    delete from rp_user_pay_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+    insert into rp_user_pay_info (id_, create_time, edit_time, 
+      version, remark, status, 
+      app_id, app_sectet, merchant_id, 
+      app_type, user_no, user_name, 
+      partner_key, pay_way_code, pay_way_name, 
+      offline_app_id, rsa_private_key, rsa_public_key
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{appId,jdbcType=VARCHAR}, #{appSectet,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, 
+      #{appType,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{partnerKey,jdbcType=VARCHAR}, #{payWayCode,jdbcType=VARCHAR}, #{payWayName,jdbcType=VARCHAR}, 
+      #{offlineAppId,jdbcType=VARCHAR}, #{rsaPrivateKey,jdbcType=VARCHAR}, #{rsaPublicKey,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+    insert into rp_user_pay_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id_,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="editTime != null" >
+        edit_time,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="appSectet != null" >
+        app_sectet,
+      </if>
+      <if test="merchantId != null" >
+        merchant_id,
+      </if>
+      <if test="appType != null" >
+        app_type,
+      </if>
+      <if test="userNo != null" >
+        user_no,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="partnerKey != null" >
+        partner_key,
+      </if>
+      <if test="payWayCode != null" >
+        pay_way_code,
+      </if>
+      <if test="payWayName != null" >
+        pay_way_name,
+      </if>
+      <if test="offlineAppId != null" >
+        offline_app_id,
+      </if>
+      <if test="rsaPrivateKey != null" >
+        rsa_private_key,
+      </if>
+      <if test="rsaPublicKey != null" >
+        rsa_public_key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appSectet != null" >
+        #{appSectet,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null" >
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerKey != null" >
+        #{partnerKey,jdbcType=VARCHAR},
+      </if>
+      <if test="payWayCode != null" >
+        #{payWayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payWayName != null" >
+        #{payWayName,jdbcType=VARCHAR},
+      </if>
+      <if test="offlineAppId != null" >
+        #{offlineAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="rsaPrivateKey != null" >
+        #{rsaPrivateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="rsaPublicKey != null" >
+        #{rsaPublicKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" resultType="java.lang.Integer" >
+    select count(*) from rp_user_pay_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update rp_user_pay_info
+    <set >
+      <if test="record.id != null" >
+        id_ = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.editTime != null" >
+        edit_time = #{record.editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appId != null" >
+        app_id = #{record.appId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appSectet != null" >
+        app_sectet = #{record.appSectet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantId != null" >
+        merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appType != null" >
+        app_type = #{record.appType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNo != null" >
+        user_no = #{record.userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partnerKey != null" >
+        partner_key = #{record.partnerKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payWayCode != null" >
+        pay_way_code = #{record.payWayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payWayName != null" >
+        pay_way_name = #{record.payWayName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.offlineAppId != null" >
+        offline_app_id = #{record.offlineAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rsaPrivateKey != null" >
+        rsa_private_key = #{record.rsaPrivateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rsaPublicKey != null" >
+        rsa_public_key = #{record.rsaPublicKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update rp_user_pay_info
+    set id_ = #{record.id,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      edit_time = #{record.editTime,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=BIGINT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      app_id = #{record.appId,jdbcType=VARCHAR},
+      app_sectet = #{record.appSectet,jdbcType=VARCHAR},
+      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+      app_type = #{record.appType,jdbcType=VARCHAR},
+      user_no = #{record.userNo,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      partner_key = #{record.partnerKey,jdbcType=VARCHAR},
+      pay_way_code = #{record.payWayCode,jdbcType=VARCHAR},
+      pay_way_name = #{record.payWayName,jdbcType=VARCHAR},
+      offline_app_id = #{record.offlineAppId,jdbcType=VARCHAR},
+      rsa_private_key = #{record.rsaPrivateKey,jdbcType=VARCHAR},
+      rsa_public_key = #{record.rsaPublicKey,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+    update rp_user_pay_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editTime != null" >
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null" >
+        app_id = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appSectet != null" >
+        app_sectet = #{appSectet,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null" >
+        merchant_id = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        app_type = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null" >
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerKey != null" >
+        partner_key = #{partnerKey,jdbcType=VARCHAR},
+      </if>
+      <if test="payWayCode != null" >
+        pay_way_code = #{payWayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payWayName != null" >
+        pay_way_name = #{payWayName,jdbcType=VARCHAR},
+      </if>
+      <if test="offlineAppId != null" >
+        offline_app_id = #{offlineAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="rsaPrivateKey != null" >
+        rsa_private_key = #{rsaPrivateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="rsaPublicKey != null" >
+        rsa_public_key = #{rsaPublicKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+    update rp_user_pay_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      app_id = #{appId,jdbcType=VARCHAR},
+      app_sectet = #{appSectet,jdbcType=VARCHAR},
+      merchant_id = #{merchantId,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=VARCHAR},
+      user_no = #{userNo,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      partner_key = #{partnerKey,jdbcType=VARCHAR},
+      pay_way_code = #{payWayCode,jdbcType=VARCHAR},
+      pay_way_name = #{payWayName,jdbcType=VARCHAR},
+      offline_app_id = #{offlineAppId,jdbcType=VARCHAR},
+      rsa_private_key = #{rsaPrivateKey,jdbcType=VARCHAR},
+      rsa_public_key = #{rsaPublicKey,jdbcType=VARCHAR}
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

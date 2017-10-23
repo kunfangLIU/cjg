@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cjg-common/cjg-common.iml" filepath="$PROJECT_DIR$/cjg-common/cjg-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-dao/cjg-manager-dao.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-dao/cjg-manager-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-interface/cjg-manager-interface.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-interface/cjg-manager-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-pojo/cjg-manager-pojo.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-pojo/cjg-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-service/cjg-manager-service.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-service/cjg-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-web-boss/cjg-manager-web-boss.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-web-boss/cjg-manager-web-boss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-web-gateway/cjg-manager-web-gateway.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-web-gateway/cjg-manager-web-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-web-merchant/cjg-manager-web-merchant.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-web-merchant/cjg-manager-web-merchant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-manager/cjg-manager-web-shop/cjg-manager-web-shop.iml" filepath="$PROJECT_DIR$/cjg-manager/cjg-manager-web-shop/cjg-manager-web-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjg-parent/cjg-parent.iml" filepath="$PROJECT_DIR$/cjg-parent/cjg-parent.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.SeqTableMapper" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.SeqTable" >
+    <id column="SEQ_NAME" property="seqName" jdbcType="VARCHAR" />
+    <result column="CURRENT_VALUE" property="currentValue" jdbcType="BIGINT" />
+    <result column="INCREMENT" property="increment" jdbcType="SMALLINT" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.SeqTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from seq_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from seq_table
+    where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from seq_table
+    where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.SeqTableExample" >
+    delete from seq_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cjg.pay.pojo.SeqTable" >
+    insert into seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, 
+      REMARK)
+    values (#{seqName,jdbcType=VARCHAR}, #{currentValue,jdbcType=BIGINT}, #{increment,jdbcType=SMALLINT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.SeqTable" >
+    insert into seq_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqName != null" >
+        SEQ_NAME,
+      </if>
+      <if test="currentValue != null" >
+        CURRENT_VALUE,
+      </if>
+      <if test="increment != null" >
+        INCREMENT,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqName != null" >
+        #{seqName,jdbcType=VARCHAR},
+      </if>
+      <if test="currentValue != null" >
+        #{currentValue,jdbcType=BIGINT},
+      </if>
+      <if test="increment != null" >
+        #{increment,jdbcType=SMALLINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.SeqTableExample" resultType="java.lang.Integer" >
+    select count(*) from seq_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update seq_table
+    <set >
+      <if test="record.seqName != null" >
+        SEQ_NAME = #{record.seqName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentValue != null" >
+        CURRENT_VALUE = #{record.currentValue,jdbcType=BIGINT},
+      </if>
+      <if test="record.increment != null" >
+        INCREMENT = #{record.increment,jdbcType=SMALLINT},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update seq_table
+    set SEQ_NAME = #{record.seqName,jdbcType=VARCHAR},
+      CURRENT_VALUE = #{record.currentValue,jdbcType=BIGINT},
+      INCREMENT = #{record.increment,jdbcType=SMALLINT},
+      REMARK = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.SeqTable" >
+    update seq_table
+    <set >
+      <if test="currentValue != null" >
+        CURRENT_VALUE = #{currentValue,jdbcType=BIGINT},
+      </if>
+      <if test="increment != null" >
+        INCREMENT = #{increment,jdbcType=SMALLINT},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.SeqTable" >
+    update seq_table
+    set CURRENT_VALUE = #{currentValue,jdbcType=BIGINT},
+      INCREMENT = #{increment,jdbcType=SMALLINT},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
+  </update>
+</mapper>

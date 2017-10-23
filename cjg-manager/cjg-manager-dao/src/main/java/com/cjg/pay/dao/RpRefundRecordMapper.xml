@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.RpRefundRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpRefundRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="editor" property="editor" jdbcType="VARCHAR" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
+    <result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="org_merchant_order_no" property="orgMerchantOrderNo" jdbcType="VARCHAR" />
+    <result column="org_trx_no" property="orgTrxNo" jdbcType="VARCHAR" />
+    <result column="org_bank_order_no" property="orgBankOrderNo" jdbcType="VARCHAR" />
+    <result column="org_bank_trx_no" property="orgBankTrxNo" jdbcType="VARCHAR" />
+    <result column="merchant_name" property="merchantName" jdbcType="VARCHAR" />
+    <result column="merchant_no" property="merchantNo" jdbcType="VARCHAR" />
+    <result column="org_product_name" property="orgProductName" jdbcType="VARCHAR" />
+    <result column="org_biz_type" property="orgBizType" jdbcType="VARCHAR" />
+    <result column="org_payment_type" property="orgPaymentType" jdbcType="VARCHAR" />
+    <result column="refund_amount" property="refundAmount" jdbcType="DECIMAL" />
+    <result column="refund_trx_no" property="refundTrxNo" jdbcType="VARCHAR" />
+    <result column="refund_order_no" property="refundOrderNo" jdbcType="VARCHAR" />
+    <result column="bank_refund_order_no" property="bankRefundOrderNo" jdbcType="VARCHAR" />
+    <result column="bank_refund_trx_no" property="bankRefundTrxNo" jdbcType="VARCHAR" />
+    <result column="result_notify_url" property="resultNotifyUrl" jdbcType="VARCHAR" />
+    <result column="refund_status" property="refundStatus" jdbcType="VARCHAR" />
+    <result column="refund_from" property="refundFrom" jdbcType="VARCHAR" />
+    <result column="refund_way" property="refundWay" jdbcType="VARCHAR" />
+    <result column="refund_request_time" property="refundRequestTime" jdbcType="TIMESTAMP" />
+    <result column="refund_success_time" property="refundSuccessTime" jdbcType="TIMESTAMP" />
+    <result column="refund_complete_time" property="refundCompleteTime" jdbcType="TIMESTAMP" />
+    <result column="request_apply_user_id" property="requestApplyUserId" jdbcType="VARCHAR" />
+    <result column="request_apply_user_name" property="requestApplyUserName" jdbcType="VARCHAR" />
+    <result column="refund_reason" property="refundReason" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, version, create_time, editor, creater, edit_time, org_merchant_order_no, org_trx_no, 
+    org_bank_order_no, org_bank_trx_no, merchant_name, merchant_no, org_product_name, 
+    org_biz_type, org_payment_type, refund_amount, refund_trx_no, refund_order_no, bank_refund_order_no, 
+    bank_refund_trx_no, result_notify_url, refund_status, refund_from, refund_way, refund_request_time, 
+    refund_success_time, refund_complete_time, request_apply_user_id, request_apply_user_name, 
+    refund_reason, remark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpRefundRecordExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from rp_refund_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from rp_refund_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from rp_refund_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpRefundRecordExample" >
+    delete from rp_refund_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cjg.pay.pojo.RpRefundRecord" >
+    insert into rp_refund_record (id, version, create_time, 
+      editor, creater, edit_time, 
+      org_merchant_order_no, org_trx_no, org_bank_order_no, 
+      org_bank_trx_no, merchant_name, merchant_no, 
+      org_product_name, org_biz_type, org_payment_type, 
+      refund_amount, refund_trx_no, refund_order_no, 
+      bank_refund_order_no, bank_refund_trx_no, result_notify_url, 
+      refund_status, refund_from, refund_way, 
+      refund_request_time, refund_success_time, 
+      refund_complete_time, request_apply_user_id, 
+      request_apply_user_name, refund_reason, remark
+      )
+    values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{editor,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{orgMerchantOrderNo,jdbcType=VARCHAR}, #{orgTrxNo,jdbcType=VARCHAR}, #{orgBankOrderNo,jdbcType=VARCHAR}, 
+      #{orgBankTrxNo,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, #{merchantNo,jdbcType=VARCHAR}, 
+      #{orgProductName,jdbcType=VARCHAR}, #{orgBizType,jdbcType=VARCHAR}, #{orgPaymentType,jdbcType=VARCHAR}, 
+      #{refundAmount,jdbcType=DECIMAL}, #{refundTrxNo,jdbcType=VARCHAR}, #{refundOrderNo,jdbcType=VARCHAR}, 
+      #{bankRefundOrderNo,jdbcType=VARCHAR}, #{bankRefundTrxNo,jdbcType=VARCHAR}, #{resultNotifyUrl,jdbcType=VARCHAR}, 
+      #{refundStatus,jdbcType=VARCHAR}, #{refundFrom,jdbcType=VARCHAR}, #{refundWay,jdbcType=VARCHAR}, 
+      #{refundRequestTime,jdbcType=TIMESTAMP}, #{refundSuccessTime,jdbcType=TIMESTAMP}, 
+      #{refundCompleteTime,jdbcType=TIMESTAMP}, #{requestApplyUserId,jdbcType=VARCHAR}, 
+      #{requestApplyUserName,jdbcType=VARCHAR}, #{refundReason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpRefundRecord" >
+    insert into rp_refund_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="editor != null" >
+        editor,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="editTime != null" >
+        edit_time,
+      </if>
+      <if test="orgMerchantOrderNo != null" >
+        org_merchant_order_no,
+      </if>
+      <if test="orgTrxNo != null" >
+        org_trx_no,
+      </if>
+      <if test="orgBankOrderNo != null" >
+        org_bank_order_no,
+      </if>
+      <if test="orgBankTrxNo != null" >
+        org_bank_trx_no,
+      </if>
+      <if test="merchantName != null" >
+        merchant_name,
+      </if>
+      <if test="merchantNo != null" >
+        merchant_no,
+      </if>
+      <if test="orgProductName != null" >
+        org_product_name,
+      </if>
+      <if test="orgBizType != null" >
+        org_biz_type,
+      </if>
+      <if test="orgPaymentType != null" >
+        org_payment_type,
+      </if>
+      <if test="refundAmount != null" >
+        refund_amount,
+      </if>
+      <if test="refundTrxNo != null" >
+        refund_trx_no,
+      </if>
+      <if test="refundOrderNo != null" >
+        refund_order_no,
+      </if>
+      <if test="bankRefundOrderNo != null" >
+        bank_refund_order_no,
+      </if>
+      <if test="bankRefundTrxNo != null" >
+        bank_refund_trx_no,
+      </if>
+      <if test="resultNotifyUrl != null" >
+        result_notify_url,
+      </if>
+      <if test="refundStatus != null" >
+        refund_status,
+      </if>
+      <if test="refundFrom != null" >
+        refund_from,
+      </if>
+      <if test="refundWay != null" >
+        refund_way,
+      </if>
+      <if test="refundRequestTime != null" >
+        refund_request_time,
+      </if>
+      <if test="refundSuccessTime != null" >
+        refund_success_time,
+      </if>
+      <if test="refundCompleteTime != null" >
+        refund_complete_time,
+      </if>
+      <if test="requestApplyUserId != null" >
+        request_apply_user_id,
+      </if>
+      <if test="requestApplyUserName != null" >
+        request_apply_user_name,
+      </if>
+      <if test="refundReason != null" >
+        refund_reason,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null" >
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgMerchantOrderNo != null" >
+        #{orgMerchantOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTrxNo != null" >
+        #{orgTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBankOrderNo != null" >
+        #{orgBankOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBankTrxNo != null" >
+        #{orgBankTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null" >
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        #{merchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgProductName != null" >
+        #{orgProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBizType != null" >
+        #{orgBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPaymentType != null" >
+        #{orgPaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="refundAmount != null" >
+        #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundTrxNo != null" >
+        #{refundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundOrderNo != null" >
+        #{refundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRefundOrderNo != null" >
+        #{bankRefundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRefundTrxNo != null" >
+        #{bankRefundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resultNotifyUrl != null" >
+        #{resultNotifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="refundStatus != null" >
+        #{refundStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="refundFrom != null" >
+        #{refundFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="refundWay != null" >
+        #{refundWay,jdbcType=VARCHAR},
+      </if>
+      <if test="refundRequestTime != null" >
+        #{refundRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundSuccessTime != null" >
+        #{refundSuccessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundCompleteTime != null" >
+        #{refundCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestApplyUserId != null" >
+        #{requestApplyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="requestApplyUserName != null" >
+        #{requestApplyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundReason != null" >
+        #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpRefundRecordExample" resultType="java.lang.Integer" >
+    select count(*) from rp_refund_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update rp_refund_record
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.editor != null" >
+        editor = #{record.editor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creater != null" >
+        creater = #{record.creater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editTime != null" >
+        edit_time = #{record.editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orgMerchantOrderNo != null" >
+        org_merchant_order_no = #{record.orgMerchantOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgTrxNo != null" >
+        org_trx_no = #{record.orgTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgBankOrderNo != null" >
+        org_bank_order_no = #{record.orgBankOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgBankTrxNo != null" >
+        org_bank_trx_no = #{record.orgBankTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantName != null" >
+        merchant_name = #{record.merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantNo != null" >
+        merchant_no = #{record.merchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgProductName != null" >
+        org_product_name = #{record.orgProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgBizType != null" >
+        org_biz_type = #{record.orgBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgPaymentType != null" >
+        org_payment_type = #{record.orgPaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundAmount != null" >
+        refund_amount = #{record.refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.refundTrxNo != null" >
+        refund_trx_no = #{record.refundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundOrderNo != null" >
+        refund_order_no = #{record.refundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankRefundOrderNo != null" >
+        bank_refund_order_no = #{record.bankRefundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankRefundTrxNo != null" >
+        bank_refund_trx_no = #{record.bankRefundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resultNotifyUrl != null" >
+        result_notify_url = #{record.resultNotifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundStatus != null" >
+        refund_status = #{record.refundStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundFrom != null" >
+        refund_from = #{record.refundFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundWay != null" >
+        refund_way = #{record.refundWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundRequestTime != null" >
+        refund_request_time = #{record.refundRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundSuccessTime != null" >
+        refund_success_time = #{record.refundSuccessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundCompleteTime != null" >
+        refund_complete_time = #{record.refundCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.requestApplyUserId != null" >
+        request_apply_user_id = #{record.requestApplyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestApplyUserName != null" >
+        request_apply_user_name = #{record.requestApplyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundReason != null" >
+        refund_reason = #{record.refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update rp_refund_record
+    set id = #{record.id,jdbcType=VARCHAR},
+      version = #{record.version,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      editor = #{record.editor,jdbcType=VARCHAR},
+      creater = #{record.creater,jdbcType=VARCHAR},
+      edit_time = #{record.editTime,jdbcType=TIMESTAMP},
+      org_merchant_order_no = #{record.orgMerchantOrderNo,jdbcType=VARCHAR},
+      org_trx_no = #{record.orgTrxNo,jdbcType=VARCHAR},
+      org_bank_order_no = #{record.orgBankOrderNo,jdbcType=VARCHAR},
+      org_bank_trx_no = #{record.orgBankTrxNo,jdbcType=VARCHAR},
+      merchant_name = #{record.merchantName,jdbcType=VARCHAR},
+      merchant_no = #{record.merchantNo,jdbcType=VARCHAR},
+      org_product_name = #{record.orgProductName,jdbcType=VARCHAR},
+      org_biz_type = #{record.orgBizType,jdbcType=VARCHAR},
+      org_payment_type = #{record.orgPaymentType,jdbcType=VARCHAR},
+      refund_amount = #{record.refundAmount,jdbcType=DECIMAL},
+      refund_trx_no = #{record.refundTrxNo,jdbcType=VARCHAR},
+      refund_order_no = #{record.refundOrderNo,jdbcType=VARCHAR},
+      bank_refund_order_no = #{record.bankRefundOrderNo,jdbcType=VARCHAR},
+      bank_refund_trx_no = #{record.bankRefundTrxNo,jdbcType=VARCHAR},
+      result_notify_url = #{record.resultNotifyUrl,jdbcType=VARCHAR},
+      refund_status = #{record.refundStatus,jdbcType=VARCHAR},
+      refund_from = #{record.refundFrom,jdbcType=VARCHAR},
+      refund_way = #{record.refundWay,jdbcType=VARCHAR},
+      refund_request_time = #{record.refundRequestTime,jdbcType=TIMESTAMP},
+      refund_success_time = #{record.refundSuccessTime,jdbcType=TIMESTAMP},
+      refund_complete_time = #{record.refundCompleteTime,jdbcType=TIMESTAMP},
+      request_apply_user_id = #{record.requestApplyUserId,jdbcType=VARCHAR},
+      request_apply_user_name = #{record.requestApplyUserName,jdbcType=VARCHAR},
+      refund_reason = #{record.refundReason,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpRefundRecord" >
+    update rp_refund_record
+    <set >
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null" >
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgMerchantOrderNo != null" >
+        org_merchant_order_no = #{orgMerchantOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgTrxNo != null" >
+        org_trx_no = #{orgTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBankOrderNo != null" >
+        org_bank_order_no = #{orgBankOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBankTrxNo != null" >
+        org_bank_trx_no = #{orgBankTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null" >
+        merchant_name = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        merchant_no = #{merchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgProductName != null" >
+        org_product_name = #{orgProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBizType != null" >
+        org_biz_type = #{orgBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPaymentType != null" >
+        org_payment_type = #{orgPaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="refundAmount != null" >
+        refund_amount = #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundTrxNo != null" >
+        refund_trx_no = #{refundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundOrderNo != null" >
+        refund_order_no = #{refundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRefundOrderNo != null" >
+        bank_refund_order_no = #{bankRefundOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRefundTrxNo != null" >
+        bank_refund_trx_no = #{bankRefundTrxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resultNotifyUrl != null" >
+        result_notify_url = #{resultNotifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="refundStatus != null" >
+        refund_status = #{refundStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="refundFrom != null" >
+        refund_from = #{refundFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="refundWay != null" >
+        refund_way = #{refundWay,jdbcType=VARCHAR},
+      </if>
+      <if test="refundRequestTime != null" >
+        refund_request_time = #{refundRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundSuccessTime != null" >
+        refund_success_time = #{refundSuccessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundCompleteTime != null" >
+        refund_complete_time = #{refundCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestApplyUserId != null" >
+        request_apply_user_id = #{requestApplyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="requestApplyUserName != null" >
+        request_apply_user_name = #{requestApplyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundReason != null" >
+        refund_reason = #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpRefundRecord" >
+    update rp_refund_record
+    set version = #{version,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      editor = #{editor,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      org_merchant_order_no = #{orgMerchantOrderNo,jdbcType=VARCHAR},
+      org_trx_no = #{orgTrxNo,jdbcType=VARCHAR},
+      org_bank_order_no = #{orgBankOrderNo,jdbcType=VARCHAR},
+      org_bank_trx_no = #{orgBankTrxNo,jdbcType=VARCHAR},
+      merchant_name = #{merchantName,jdbcType=VARCHAR},
+      merchant_no = #{merchantNo,jdbcType=VARCHAR},
+      org_product_name = #{orgProductName,jdbcType=VARCHAR},
+      org_biz_type = #{orgBizType,jdbcType=VARCHAR},
+      org_payment_type = #{orgPaymentType,jdbcType=VARCHAR},
+      refund_amount = #{refundAmount,jdbcType=DECIMAL},
+      refund_trx_no = #{refundTrxNo,jdbcType=VARCHAR},
+      refund_order_no = #{refundOrderNo,jdbcType=VARCHAR},
+      bank_refund_order_no = #{bankRefundOrderNo,jdbcType=VARCHAR},
+      bank_refund_trx_no = #{bankRefundTrxNo,jdbcType=VARCHAR},
+      result_notify_url = #{resultNotifyUrl,jdbcType=VARCHAR},
+      refund_status = #{refundStatus,jdbcType=VARCHAR},
+      refund_from = #{refundFrom,jdbcType=VARCHAR},
+      refund_way = #{refundWay,jdbcType=VARCHAR},
+      refund_request_time = #{refundRequestTime,jdbcType=TIMESTAMP},
+      refund_success_time = #{refundSuccessTime,jdbcType=TIMESTAMP},
+      refund_complete_time = #{refundCompleteTime,jdbcType=TIMESTAMP},
+      request_apply_user_id = #{requestApplyUserId,jdbcType=VARCHAR},
+      request_apply_user_name = #{requestApplyUserName,jdbcType=VARCHAR},
+      refund_reason = #{refundReason,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cjg-common" />
+        <module name="cjg-manager-dao" />
+        <module name="cjg-manager-interface" />
+        <module name="cjg-manager-pojo" />
+        <module name="cjg-manager-service" />
+        <module name="cjg-manager-servicer" />
+        <module name="cjg-manager-web-boss" />
+        <module name="cjg-manager-web-gateway" />
+        <module name="cjg-manager-web-merchant" />
+        <module name="cjg-manager-web-shop" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="cjg-common" target="1.8" />
+      <module name="cjg-manager" target="1.8" />
+      <module name="cjg-manager-dao" target="1.8" />
+      <module name="cjg-manager-interface" target="1.8" />
+      <module name="cjg-manager-pojo" target="1.8" />
+      <module name="cjg-manager-service" target="1.8" />
+      <module name="cjg-manager-servicer" target="1.5" />
+      <module name="cjg-manager-web-boss" target="1.8" />
+      <module name="cjg-manager-web-gateway" target="1.8" />
+      <module name="cjg-manager-web-merchant" target="1.8" />
+      <module name="cjg-manager-web-shop" target="1.8" />
+      <module name="cjg-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

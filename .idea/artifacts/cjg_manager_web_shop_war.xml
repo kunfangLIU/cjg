@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cjg-manager-web-shop:war">
+    <output-path>$PROJECT_DIR$/cjg-manager/cjg-manager-web-shop/target</output-path>
+    <root id="archive" name="cjg-manager-web-shop.war">
+      <element id="artifact" artifact-name="cjg-manager-web-shop:war exploded" />
+    </root>
+  </artifact>
+</component>
