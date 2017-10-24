@@ -1,5 +1,5 @@
 
-var ttshop = {
+var cjg = {
     //点击左侧导航树上的节点响应事件
     registerMenuEvent:function(){
         $("#menu .easyui-tree").tree({

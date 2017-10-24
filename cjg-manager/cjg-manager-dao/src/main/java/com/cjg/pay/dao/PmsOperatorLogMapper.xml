@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.PmsOperatorLogMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.PmsOperatorLog" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.PmsOperatorLog" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="version" property="version" jdbcType="BIGINT" />
     <result column="creater" property="creater" jdbcType="VARCHAR" />
@@ -78,7 +78,7 @@
     id, version, creater, create_time, editor, edit_time, status, remark, operator_id, 
     operator_name, operate_type, ip, content
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.PmsOperatorLogExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.PmsOperatorLogExample" >
     select
     <if test="distinct" >
       distinct
@@ -102,13 +102,13 @@
     delete from pms_operator_log
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.PmsOperatorLogExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.PmsOperatorLogExample" >
     delete from pms_operator_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.PmsOperatorLog" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.PmsOperatorLog" >
     insert into pms_operator_log (id, version, creater, 
       create_time, editor, edit_time, 
       status, remark, operator_id, 
@@ -120,7 +120,7 @@
       #{operatorName,jdbcType=VARCHAR}, #{operateType,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
       #{content,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.PmsOperatorLog" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.PmsOperatorLog" >
     insert into pms_operator_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -205,7 +205,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.PmsOperatorLogExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.PmsOperatorLogExample" resultType="java.lang.Integer" >
     select count(*) from pms_operator_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -277,7 +277,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.PmsOperatorLog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.PmsOperatorLog" >
     update pms_operator_log
     <set >
       <if test="version != null" >
@@ -319,7 +319,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.PmsOperatorLog" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.PmsOperatorLog" >
     update pms_operator_log
     set version = #{version,jdbcType=BIGINT},
       creater = #{creater,jdbcType=VARCHAR},

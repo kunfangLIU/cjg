@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpSettRecordAnnex;
-import com.cjg.pay.pojo.RpSettRecordAnnexExample;
+import com.cjg.pay.pojo.po.RpSettRecordAnnex;
+import com.cjg.pay.pojo.po.RpSettRecordAnnexExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

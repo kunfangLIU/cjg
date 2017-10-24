@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.PmsMenu;
-import com.cjg.pay.pojo.PmsMenuExample;
+import com.cjg.pay.pojo.po.PmsMenu;
+import com.cjg.pay.pojo.po.PmsMenuExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

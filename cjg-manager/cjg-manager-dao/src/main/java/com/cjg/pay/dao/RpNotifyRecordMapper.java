@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpNotifyRecord;
-import com.cjg.pay.pojo.RpNotifyRecordExample;
+import com.cjg.pay.pojo.po.RpNotifyRecord;
+import com.cjg.pay.pojo.po.RpNotifyRecordExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

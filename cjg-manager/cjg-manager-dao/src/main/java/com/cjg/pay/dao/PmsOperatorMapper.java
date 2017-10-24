@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.PmsOperator;
-import com.cjg.pay.pojo.PmsOperatorExample;
+import com.cjg.pay.pojo.po.PmsOperator;
+import com.cjg.pay.pojo.po.PmsOperatorExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

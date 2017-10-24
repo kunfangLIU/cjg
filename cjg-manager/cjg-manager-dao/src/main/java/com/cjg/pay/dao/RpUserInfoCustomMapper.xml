@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.RpUserInfoCustomMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpUserInfo" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.RpUserInfo" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
     id, create_time, status, user_no, user_name as userName, account_no, mobile, password, pay_pwd
   </sql>
 
-  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpUserInfo" >
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.RpUserInfo" >
     select
 
     <include refid="Base_Column_List" />

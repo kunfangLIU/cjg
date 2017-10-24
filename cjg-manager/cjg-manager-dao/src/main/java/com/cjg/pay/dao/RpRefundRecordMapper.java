@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpRefundRecord;
-import com.cjg.pay.pojo.RpRefundRecordExample;
+import com.cjg.pay.pojo.po.RpRefundRecord;
+import com.cjg.pay.pojo.po.RpRefundRecordExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

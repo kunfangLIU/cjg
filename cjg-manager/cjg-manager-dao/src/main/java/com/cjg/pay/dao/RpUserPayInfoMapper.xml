@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.RpUserPayInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpUserPayInfo" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.RpUserPayInfo" >
     <id column="id_" property="id" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
@@ -84,7 +84,7 @@
     app_type, user_no, user_name, partner_key, pay_way_code, pay_way_name, offline_app_id, 
     rsa_private_key, rsa_public_key
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.RpUserPayInfoExample" >
     select
     <if test="distinct" >
       distinct
@@ -108,13 +108,13 @@
     delete from rp_user_pay_info
     where id_ = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.RpUserPayInfoExample" >
     delete from rp_user_pay_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.RpUserPayInfo" >
     insert into rp_user_pay_info (id_, create_time, edit_time, 
       version, remark, status, 
       app_id, app_sectet, merchant_id, 
@@ -130,7 +130,7 @@
       #{offlineAppId,jdbcType=VARCHAR}, #{rsaPrivateKey,jdbcType=VARCHAR}, #{rsaPublicKey,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.RpUserPayInfo" >
     insert into rp_user_pay_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -245,7 +245,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpUserPayInfoExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.RpUserPayInfoExample" resultType="java.lang.Integer" >
     select count(*) from rp_user_pay_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -337,7 +337,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.RpUserPayInfo" >
     update rp_user_pay_info
     <set >
       <if test="createTime != null" >
@@ -394,7 +394,7 @@
     </set>
     where id_ = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpUserPayInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.RpUserPayInfo" >
     update rp_user_pay_info
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       edit_time = #{editTime,jdbcType=TIMESTAMP},

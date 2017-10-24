@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpAccountCheckMistakeScratchPool;
-import com.cjg.pay.pojo.RpAccountCheckMistakeScratchPoolExample;
+import com.cjg.pay.pojo.po.RpAccountCheckMistakeScratchPool;
+import com.cjg.pay.pojo.po.RpAccountCheckMistakeScratchPoolExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

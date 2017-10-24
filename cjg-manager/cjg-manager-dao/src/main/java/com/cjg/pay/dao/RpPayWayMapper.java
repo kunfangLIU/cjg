@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpPayWay;
-import com.cjg.pay.pojo.RpPayWayExample;
+import com.cjg.pay.pojo.po.RpPayWay;
+import com.cjg.pay.pojo.po.RpPayWayExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

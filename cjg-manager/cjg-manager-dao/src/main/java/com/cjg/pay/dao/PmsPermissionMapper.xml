@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.PmsPermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.PmsPermission" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.PmsPermission" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="version" property="version" jdbcType="BIGINT" />
     <result column="creater" property="creater" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
     id, version, creater, create_time, editor, edit_time, status, remark, permission_name, 
     permission
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.PmsPermissionExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.PmsPermissionExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from pms_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.PmsPermissionExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.PmsPermissionExample" >
     delete from pms_permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.PmsPermission" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.PmsPermission" >
     insert into pms_permission (id, version, creater, 
       create_time, editor, edit_time, 
       status, remark, permission_name, 
@@ -115,7 +115,7 @@
       #{status,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR}, 
       #{permission,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.PmsPermission" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.PmsPermission" >
     insert into pms_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.PmsPermissionExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.PmsPermissionExample" resultType="java.lang.Integer" >
     select count(*) from pms_permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -242,7 +242,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.PmsPermission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.PmsPermission" >
     update pms_permission
     <set >
       <if test="version != null" >
@@ -275,7 +275,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.PmsPermission" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.PmsPermission" >
     update pms_permission
     set version = #{version,jdbcType=BIGINT},
       creater = #{creater,jdbcType=VARCHAR},

@@ -1,6 +1,6 @@
 package com.cjg.pay.web;
 
-import com.cjg.pay.pojo.RpUserInfo;
+import com.cjg.pay.pojo.po.RpUserInfo;
 import com.cjg.pay.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;

@@ -1,6 +1,6 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpUserInfo;
+import com.cjg.pay.pojo.po.RpUserInfo;
 
 /**
  * User: Administrator

@@ -2,7 +2,7 @@ package com.cjg.pay.service.impl;
 
 import com.cjg.pay.dao.RpUserInfoCustomMapper;
 import com.cjg.pay.dao.RpUserInfoMapper;
-import com.cjg.pay.pojo.RpUserInfo;
+import com.cjg.pay.pojo.po.RpUserInfo;
 import com.cjg.pay.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

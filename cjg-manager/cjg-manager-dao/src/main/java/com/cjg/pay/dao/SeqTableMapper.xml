@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.SeqTableMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.SeqTable" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.SeqTable" >
     <id column="SEQ_NAME" property="seqName" jdbcType="VARCHAR" />
     <result column="CURRENT_VALUE" property="currentValue" jdbcType="BIGINT" />
     <result column="INCREMENT" property="increment" jdbcType="SMALLINT" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.SeqTableExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.SeqTableExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,19 +92,19 @@
     delete from seq_table
     where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.SeqTableExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.SeqTableExample" >
     delete from seq_table
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.SeqTable" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.SeqTable" >
     insert into seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, 
       REMARK)
     values (#{seqName,jdbcType=VARCHAR}, #{currentValue,jdbcType=BIGINT}, #{increment,jdbcType=SMALLINT}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.SeqTable" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.SeqTable" >
     insert into seq_table
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="seqName != null" >
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.SeqTableExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.SeqTableExample" resultType="java.lang.Integer" >
     select count(*) from seq_table
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.SeqTable" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.SeqTable" >
     update seq_table
     <set >
       <if test="currentValue != null" >
@@ -186,7 +186,7 @@
     </set>
     where SEQ_NAME = #{seqName,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.SeqTable" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.SeqTable" >
     update seq_table
     set CURRENT_VALUE = #{currentValue,jdbcType=BIGINT},
       INCREMENT = #{increment,jdbcType=SMALLINT},

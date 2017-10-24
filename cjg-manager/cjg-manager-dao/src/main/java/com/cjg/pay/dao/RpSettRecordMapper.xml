@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.RpSettRecordMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpSettRecord" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.RpSettRecord" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="version" property="version" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -98,7 +98,7 @@
     remit_amount, sett_status, remit_confirm_time, remark, remit_remark, operator_loginname, 
     operator_realname
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpSettRecordExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.RpSettRecordExample" >
     select
     <if test="distinct" >
       distinct
@@ -122,13 +122,13 @@
     delete from rp_sett_record
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpSettRecordExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.RpSettRecordExample" >
     delete from rp_sett_record
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.RpSettRecord" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.RpSettRecord" >
     insert into rp_sett_record (id, version, create_time, 
       edit_time, sett_mode, account_no, 
       user_no, user_name, user_type, 
@@ -152,7 +152,7 @@
       #{remitRemark,jdbcType=VARCHAR}, #{operatorLoginname,jdbcType=VARCHAR}, #{operatorRealname,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpSettRecord" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.RpSettRecord" >
     insert into rp_sett_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -339,7 +339,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpSettRecordExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.RpSettRecordExample" resultType="java.lang.Integer" >
     select count(*) from rp_sett_record
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -479,7 +479,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpSettRecord" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.RpSettRecord" >
     update rp_sett_record
     <set >
       <if test="version != null" >
@@ -572,7 +572,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpSettRecord" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.RpSettRecord" >
     update rp_sett_record
     set version = #{version,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

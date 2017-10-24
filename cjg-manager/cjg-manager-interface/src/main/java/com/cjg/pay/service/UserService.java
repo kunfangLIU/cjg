@@ -1,6 +1,6 @@
 package com.cjg.pay.service;
 
-import com.cjg.pay.pojo.RpUserInfo;
+import com.cjg.pay.pojo.po.RpUserInfo;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,5 +14,5 @@ import javax.servlet.http.HttpSession;
 public interface UserService {
      RpUserInfo selectByUserName(RpUserInfo rpUserInfo);
      String checkUser(RpUserInfo rpUserInfo, HttpSession session);
-
+     String checkUserName(RpUserInfo rpUserInfo);
 }

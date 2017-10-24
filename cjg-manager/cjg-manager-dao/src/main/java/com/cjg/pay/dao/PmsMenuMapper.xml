@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.PmsMenuMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.PmsMenu" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.PmsMenu" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="version" property="version" jdbcType="BIGINT" />
     <result column="creater" property="creater" jdbcType="VARCHAR" />
@@ -80,7 +80,7 @@
     id, version, creater, create_time, editor, edit_time, status, remark, is_leaf, level, 
     parent_id, target_name, number, name, url
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.PmsMenuExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.PmsMenuExample" >
     select
     <if test="distinct" >
       distinct
@@ -104,13 +104,13 @@
     delete from pms_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.PmsMenuExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.PmsMenuExample" >
     delete from pms_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.PmsMenu" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.PmsMenu" >
     insert into pms_menu (id, version, creater, 
       create_time, editor, edit_time, 
       status, remark, is_leaf, 
@@ -122,7 +122,7 @@
       #{level,jdbcType=SMALLINT}, #{parentId,jdbcType=BIGINT}, #{targetName,jdbcType=VARCHAR}, 
       #{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.PmsMenu" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.PmsMenu" >
     insert into pms_menu
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -219,7 +219,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.PmsMenuExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.PmsMenuExample" resultType="java.lang.Integer" >
     select count(*) from pms_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -299,7 +299,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.PmsMenu" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.PmsMenu" >
     update pms_menu
     <set >
       <if test="version != null" >
@@ -347,7 +347,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.PmsMenu" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.PmsMenu" >
     update pms_menu
     set version = #{version,jdbcType=BIGINT},
       creater = #{creater,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.RpNotifyRecordLogMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpNotifyRecordLog" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.RpNotifyRecordLog" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="version" property="version" jdbcType="INTEGER" />
     <result column="editor" property="editor" jdbcType="VARCHAR" />
@@ -77,7 +77,7 @@
     id, version, editor, creater, edit_time, create_time, notify_id, request, response, 
     merchant_no, merchant_order_no, http_status
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpNotifyRecordLogExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLogExample" >
     select
     <if test="distinct" >
       distinct
@@ -101,13 +101,13 @@
     delete from rp_notify_record_log
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpNotifyRecordLogExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLogExample" >
     delete from rp_notify_record_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.RpNotifyRecordLog" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLog" >
     insert into rp_notify_record_log (id, version, editor, 
       creater, edit_time, create_time, 
       notify_id, request, response, 
@@ -119,7 +119,7 @@
       #{merchantNo,jdbcType=VARCHAR}, #{merchantOrderNo,jdbcType=VARCHAR}, #{httpStatus,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpNotifyRecordLog" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLog" >
     insert into rp_notify_record_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -198,7 +198,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpNotifyRecordLogExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLogExample" resultType="java.lang.Integer" >
     select count(*) from rp_notify_record_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -266,7 +266,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpNotifyRecordLog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLog" >
     update rp_notify_record_log
     <set >
       <if test="version != null" >
@@ -305,7 +305,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpNotifyRecordLog" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.RpNotifyRecordLog" >
     update rp_notify_record_log
     set version = #{version,jdbcType=INTEGER},
       editor = #{editor,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.SeqTable;
-import com.cjg.pay.pojo.SeqTableExample;
+import com.cjg.pay.pojo.po.SeqTable;
+import com.cjg.pay.pojo.po.SeqTableExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

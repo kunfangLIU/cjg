@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.RpAccountCheckBatch;
-import com.cjg.pay.pojo.RpAccountCheckBatchExample;
+import com.cjg.pay.pojo.po.RpAccountCheckBatch;
+import com.cjg.pay.pojo.po.RpAccountCheckBatchExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cjg.pay.dao.RpTradePaymentRecordMapper" >
-  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.RpTradePaymentRecord" >
+  <resultMap id="BaseResultMap" type="com.cjg.pay.pojo.po.RpTradePaymentRecord" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="version" property="version" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -123,7 +123,7 @@
     success_refund_amount, trx_type, order_from, pay_type_code, pay_type_name, fund_into_type, 
     remark, field1, field2, field3, field4, field5, bank_return_msg
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.RpTradePaymentRecordExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecordExample" >
     select
     <if test="distinct" >
       distinct
@@ -147,13 +147,13 @@
     delete from rp_trade_payment_record
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.RpTradePaymentRecordExample" >
+  <delete id="deleteByExample" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecordExample" >
     delete from rp_trade_payment_record
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cjg.pay.pojo.RpTradePaymentRecord" >
+  <insert id="insert" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecord" >
     insert into rp_trade_payment_record (id, version, create_time, 
       status, editor, creater, 
       edit_time, product_name, merchant_order_no, 
@@ -191,7 +191,7 @@
       #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, 
       #{bankReturnMsg,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.RpTradePaymentRecord" >
+  <insert id="insertSelective" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecord" >
     insert into rp_trade_payment_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -510,7 +510,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cjg.pay.pojo.RpTradePaymentRecordExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecordExample" resultType="java.lang.Integer" >
     select count(*) from rp_trade_payment_record
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -738,7 +738,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.RpTradePaymentRecord" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecord" >
     update rp_trade_payment_record
     <set >
       <if test="version != null" >
@@ -897,7 +897,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.RpTradePaymentRecord" >
+  <update id="updateByPrimaryKey" parameterType="com.cjg.pay.pojo.po.RpTradePaymentRecord" >
     update rp_trade_payment_record
     set version = #{version,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

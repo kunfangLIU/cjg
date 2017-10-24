@@ -1,7 +1,7 @@
 package com.cjg.pay.dao;
 
-import com.cjg.pay.pojo.PmsRolePermission;
-import com.cjg.pay.pojo.PmsRolePermissionExample;
+import com.cjg.pay.pojo.po.PmsRolePermission;
+import com.cjg.pay.pojo.po.PmsRolePermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
