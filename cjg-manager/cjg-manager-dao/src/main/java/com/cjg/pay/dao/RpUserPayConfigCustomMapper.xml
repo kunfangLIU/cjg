@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.RpUserPayConfigCustomMapper" >
+
+  <sql id="Base_Column_List" >
+    i.id, i.create_time as createTime, i.edit_time as editTime, i.version, i.remark, i.status, i.audit_status as auditStatus,
+     i.is_auto_sett as isAutoSett, i.product_code as productCode, i.product_name as productName, i.user_no as userNo,
+     i.user_name as userName, i.risk_day as riskDay, i.pay_key as payKey, i.fund_into_type as fundIntoType,
+      i.pay_secret as paySecret, i.security_rating as securityRating, i.merchant_server_ip as merchantServerIp
+  </sql>
+  <sql id ="Where_Clause">
+    <if test="query !=null and query.userName !=null and query.userName != '' ">
+      and i.user_name like '%${query.userName}%'
+    </if>
+    <if test="query !=null and query.productName !=null and query.productName !='' ">
+     and i.product_name like '%${query.productName}%'
+    </if>
+  </sql>
+  <select id="listUserPayConfigByPage" resultType="com.cjg.pay.pojo.vo.RpUserPayConfigCustom">
+    SELECT
+    <include refid="Base_Column_List" />
+    from rp_user_pay_config i
+    <include refid="Where_Clause" />
+    limit #{page.offset},#{page.rows}
+  </select>
+<select id="countUserPayConfigs" resultType="long">
+  SELECT
+count(*)
+  from rp_user_pay_config i
+
+</select>
+</mapper>
