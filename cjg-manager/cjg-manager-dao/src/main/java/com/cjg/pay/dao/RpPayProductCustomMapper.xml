@@ -9,11 +9,11 @@
   <sql id="Where_Clause">
     <where>
       i.status != 'DELETE'
-      <if test="query != null and query.title != null and query.title != '' ">
-        and i.title like '%${query.title}%'
+      <if test="query != null and query.productName != null and query.productName != '' ">
+        and i.product_name like '%${query.productName}%'
       </if>
       <if test="query != null and query.status != null and query.status != '' ">
-        and i.status like '%{query.status}%'
+        and i.status like '%${query.status}%'
       </if>
     </where>
   </sql>
@@ -22,13 +22,13 @@ select
 <include refid="Base_Column_List" />
   from rp_pay_product i
   <include refid="Where_Clause"/>
-
+order by i.id desc
   limit #{page.offset},#{page.rows}
 </select>
   <select id="countProducts" resultType="long">
 select
 count(*)
     from rp_pay_product i
-    <include refid="Where_Clause"/>
+    order by i.id desc
   </select>
 </mapper>

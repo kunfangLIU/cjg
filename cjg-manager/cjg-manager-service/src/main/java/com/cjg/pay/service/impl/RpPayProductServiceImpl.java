@@ -5,6 +5,7 @@ import com.cjg.pay.dao.RpPayProductMapper;
 import com.cjg.pay.dto.Page;
 import com.cjg.pay.dto.Result;
 import com.cjg.pay.pojo.po.RpPayProduct;
+import com.cjg.pay.pojo.po.RpPayProductExample;
 import com.cjg.pay.pojo.vo.RpPayProductCustom;
 import com.cjg.pay.pojo.vo.RpPayProductQuery;
 import com.cjg.pay.service.RpPayProductService;
@@ -33,7 +34,6 @@ public class RpPayProductServiceImpl implements RpPayProductService {
     public RpPayProduct getById(String rpPayProductId) {
         return rpPayProductDao.selectByPrimaryKey(rpPayProductId);
     }
-
     @Override
     public List<RpPayProduct> listRpPayProducts() {
         return rpPayProductDao.selectByExample(null);
@@ -51,5 +51,24 @@ public class RpPayProductServiceImpl implements RpPayProductService {
         rs.setTotal(total);
         rs.setRows(rows);
         return rs;
+    }
+
+    /**
+     * 通过更改产品状态来删除产品
+     * @param ids
+     * @return
+     */
+    @Override
+    public int updateProductsByIds(String b,List<String> ids) {
+        //创建空的对象
+        RpPayProduct rpPayProduct = new RpPayProduct();
+        rpPayProduct.setStatus(b);
+        //下面三行只是准备查询条件
+        RpPayProductExample example = new RpPayProductExample();
+        RpPayProductExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(ids);
+        //真正执行查询语句
+        return  rpPayProductDao.updateByExampleSelective(rpPayProduct,example);
+
     }
 }

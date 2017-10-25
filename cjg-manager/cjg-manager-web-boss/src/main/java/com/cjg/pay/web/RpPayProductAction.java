@@ -9,10 +9,9 @@ import com.cjg.pay.service.RpPayProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * User: Administrator
@@ -46,5 +45,10 @@ public class RpPayProductAction {
     @RequestMapping("/rpPayProducts")
     public Result<RpPayProductCustom> listRpPayProducts(Page page, RpPayProductQuery query){
        return  rpPayProductService.listRpPayProducts(page,query);
+   }
+   @ResponseBody
+    @RequestMapping(value = "rpPayProducts/delete",method =  RequestMethod.POST)
+    public int updateProductsByIds(@RequestParam("ids[]") List<String> ids ){
+        return  rpPayProductService.updateProductsByIds( (String) "DELETE",ids);
    }
 }

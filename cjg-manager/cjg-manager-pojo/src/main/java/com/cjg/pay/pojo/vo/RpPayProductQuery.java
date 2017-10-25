@@ -8,22 +8,22 @@ package com.cjg.pay.pojo.vo;
  * 商品实体类查询类
  */
 public class RpPayProductQuery {
-    private String title;
-    private Byte status;
+    private String productName;
+    private String status;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Byte getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

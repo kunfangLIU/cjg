@@ -11,9 +11,10 @@
         <input class="easyui-textbox" type="text" id="title">
         <label>商品状态：</label>
         <select id="status" class="easyui-combobox">
-            <option value="ALL">全部</option>
+            <option value="">全部</option>
             <option value="ACTIVE">激活</option>
             <option value="FREEZE">冻结</option>
+            <option value="DELETE">删除</option>
         </select>
         <!--http://www.cnblogs.com/wisdomoon/p/3330856.html-->
         <!--注意：要加上type="button",默认行为是submit-->
@@ -67,7 +68,7 @@
                 //ajax提交数组给后台
                 $.post(
                     //url:提交给后台的哪个动作去处理，只有第一个参数是必选的，其余的都是可选项
-                    'rpPayProducts',
+                    'rpPayProducts/delete',
                     //data:提交哪些数据给后台进行处理
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
@@ -84,8 +85,8 @@
 
     /*初始化数据表格*/
     $('#dg').datagrid({
-        pageSize:20,
-        pageList:[20,40,50],
+        pageSize:10,
+        /*pageList:[20,40,50],*/
         toolbar:'#toolbar',
         fit:true,
         pagination:true,
@@ -112,8 +113,9 @@
                 }
             }},
             {field:'createTime',title:'创建时间',formatter:function(value,row,index){
-                return moment(value).format('dddd, MMMM Do YYYY, h:mm:ss a');
+                return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
+
             {field:'auditStatus',title:'操作'}
 
         ]]
