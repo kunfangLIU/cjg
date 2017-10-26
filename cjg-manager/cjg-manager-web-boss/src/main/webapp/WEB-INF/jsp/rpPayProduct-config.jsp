@@ -8,9 +8,9 @@
 <div id="toolbar">
     <div style="padding: 5px; background-color: #fffcf9;">
         <label>用户名：</label>
-        <input class="easyui-textbox" type="text" id="title">
+        <input class="easyui-textbox" type="text" id="userName">
         <label>支付产品名称：</label>
-        <input class="easyui-textbox" type="text" id="title">
+        <input class="easyui-textbox" type="text" id="productName">
         <!--http://www.cnblogs.com/wisdomoon/p/3330856.html-->
         <!--注意：要加上type="button",默认行为是submit-->
         <button onclick="searchForm()" type="button" class="easyui-linkbutton">搜索</button>

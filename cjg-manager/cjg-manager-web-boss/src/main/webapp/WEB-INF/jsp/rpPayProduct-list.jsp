@@ -7,9 +7,9 @@
 <table id="dg"></table>
 <div id="toolbar">
     <div style="padding: 5px; background-color: #fffcf9;">
-        <label>商品标题：</label>
-        <input class="easyui-textbox" type="text" id="title">
-        <label>商品状态：</label>
+        <label>支付产品名称：</label>
+        <input class="easyui-textbox" type="text" id="productName">
+        <label>产品状态：</label>
         <select id="status" class="easyui-combobox">
             <option value="">全部</option>
             <option value="ACTIVE">激活</option>
@@ -116,7 +116,9 @@
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
 
-            {field:'auditStatus',title:'操作'}
+            {field:'auditStatus',title:'操作',width:100 ,formatter: function(value,row,index){
+                return '<a style="color:blue" href="${pageContext.request.contextPath}/payWays" >查看支付方式</a>';
+            }}
 
         ]]
     });

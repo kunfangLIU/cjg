@@ -9,12 +9,14 @@
       i.pay_secret as paySecret, i.security_rating as securityRating, i.merchant_server_ip as merchantServerIp
   </sql>
   <sql id ="Where_Clause">
-    <if test="query !=null and query.userName !=null and query.userName != '' ">
+    <where>
+    <if test="query !=null and query.userName !=null and query.userName != ''  ">
       and i.user_name like '%${query.userName}%'
     </if>
     <if test="query !=null and query.productName !=null and query.productName !='' ">
      and i.product_name like '%${query.productName}%'
     </if>
+    </where>
   </sql>
   <select id="listUserPayConfigByPage" resultType="com.cjg.pay.pojo.vo.RpUserPayConfigCustom">
     SELECT

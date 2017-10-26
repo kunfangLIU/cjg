@@ -3,29 +3,29 @@ package com.cjg.pay.pojo.po;
 import java.util.Date;
 
 public class RpPayWay {
-    private String id;
+    private String id;//编号
 
-    private Long version;
+    private Long version;//版本
 
-    private Date createTime;
+    private Date createTime;//创建时间
 
-    private Date editTime;
+    private Date editTime;//修改时间
 
-    private String payWayCode;
+    private String payWayCode;//支付方式编号
 
-    private String payWayName;
+    private String payWayName;//支付方式名称
 
-    private String payTypeCode;
+    private String payTypeCode;//支付类型编号
 
-    private String payTypeName;
+    private String payTypeName;//支付类型名称
 
-    private String payProductCode;
+    private String payProductCode;//支付产品编号
 
-    private String status;
+    private String status;//状态
 
-    private Integer sorts;
+    private Integer sorts;//分类
 
-    private Double payRate;
+    private Double payRate;//费率
 
     public String getId() {
         return id;
