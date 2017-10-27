@@ -6,37 +6,37 @@ import java.util.Date;
 public class RpAccount {
     private String id;
 
-    private Date createTime;
+    private Date createTime;//创建日期
 
-    private Date editTime;
+    private Date editTime;//修改时间
 
-    private Long version;
+    private Long version;//版本
 
-    private String remark;
+    private String remark;//备注
 
-    private String accountNo;
+    private String accountNo;//账户编号
 
-    private BigDecimal balance;
+    private BigDecimal balance;//账户余额
 
-    private BigDecimal unbalance;
+    private BigDecimal unbalance;//不用余额
 
-    private BigDecimal securityMoney;
+    private BigDecimal securityMoney;//可结算余额
 
-    private String status;
+    private String status;//状态
 
-    private BigDecimal totalIncome;
+    private BigDecimal totalIncome;//总收益
 
-    private BigDecimal totalExpend;
+    private BigDecimal totalExpend;//总消费金融
 
-    private BigDecimal todayIncome;
+    private BigDecimal todayIncome;//今日收益
 
-    private BigDecimal todayExpend;
+    private BigDecimal todayExpend;//今日支出
 
-    private String accountType;
+    private String accountType;//账户类型
 
-    private BigDecimal settAmount;
+    private BigDecimal settAmount;//总金额
 
-    private String userNo;
+    private String userNo;//用户编号
 
     public String getId() {
         return id;

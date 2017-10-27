@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.RpAccountCustomMapper" >
+
+  <sql id="Base_Column_List" >
+    i.id, i.create_time as createTime, i.edit_time as editTime, i.version, i.remark, i.account_no as accountNo,
+     i.balance, i.unbalance, i.security_money as securityMoney, i.status, i.total_income as totalIncome,
+     i.total_expend as totalExpend, i.today_income as todayIncome, i.today_expend as todayExpend,
+      i.account_type as accountType, i.sett_amount as settAmount,
+    user_no
+  </sql>
+
+  <sql id="Where_Clause">
+  <where>
+    <if test="query !=null and query.accountNo !=null and query.accountNo !='' ">
+    and i.account_no like '%${query.accountNo}%'
+    </if>
+  </where>
+  </sql>
+
+  <select id="listAccountByPage" resultType="com.cjg.pay.pojo.vo.RpAccountCustom">
+  SELECT
+  <include refid="Base_Column_List"/>
+    from rp_account i
+    <include refid="Where_Clause"/>
+    order by i.id DESC
+    limit #{page.offset},#{page.rows}
+  </select>
+  <select id="countAccounts" resultType="long">
+    SELECT
+    COUNT(*)
+    from rp_account i
+    <include refid="Where_Clause"/>
+  order by i.id DESC
+  </select>
+</mapper>

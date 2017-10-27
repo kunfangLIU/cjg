@@ -39,8 +39,8 @@
 		</div>
 		<div title="账户管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
 			<ul class="easyui-tree">
-				<li data-options="attributes:{'href':''}">账户信息</li>
-				<li data-options="attributes:{'href':''}">账户历史信息</li>
+				<li data-options="attributes:{'href':'rpAccount-list'}">账户信息</li>
+				<li data-options="attributes:{'href':'rpAccount-history'}">账户历史信息</li>
 			</ul>
 		</div>
 		<div title="用户管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">

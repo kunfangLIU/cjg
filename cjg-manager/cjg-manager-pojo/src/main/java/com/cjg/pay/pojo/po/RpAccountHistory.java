@@ -6,35 +6,35 @@ import java.util.Date;
 public class RpAccountHistory {
     private String id;
 
-    private Date createTime;
+    private Date createTime;//创建时间
 
-    private Date editTime;
+    private Date editTime;//更新时间
 
-    private Long version;
+    private Long version;//版本
 
-    private String remark;
+    private String remark;//备注
 
-    private String accountNo;
+    private String accountNo;//账户编号
 
-    private BigDecimal amount;
+    private BigDecimal amount;//账户余额
 
-    private BigDecimal balance;
+    private BigDecimal balance;//变动金额
 
-    private String fundDirection;
+    private String fundDirection;//变动方向
 
     private String isAllowSett;
 
     private String isCompleteSett;
 
-    private String requestNo;
+    private String requestNo;//请求编号;
 
-    private String bankTrxNo;
+    private String bankTrxNo;//银行业务编号
 
-    private String trxType;
+    private String trxType;//业务类型
 
-    private Integer riskDay;
+    private Integer riskDay;//风险日期
 
-    private String userNo;
+    private String userNo;//用户编号
 
     public String getId() {
         return id;
