@@ -6,8 +6,7 @@
     i.id, i.create_time as createTime, i.edit_time as editTime, i.version, i.remark, i.account_no as accountNo,
      i.balance, i.unbalance, i.security_money as securityMoney, i.status, i.total_income as totalIncome,
      i.total_expend as totalExpend, i.today_income as todayIncome, i.today_expend as todayExpend,
-      i.account_type as accountType, i.sett_amount as settAmount,
-    user_no
+      i.account_type as accountType, i.sett_amount as settAmount, i.user_no as userNo,c.user_name as userName
   </sql>
 
   <sql id="Where_Clause">
@@ -22,6 +21,8 @@
   SELECT
   <include refid="Base_Column_List"/>
     from rp_account i
+    left join rp_user_info c
+    on i.user_no = c.user_no
     <include refid="Where_Clause"/>
     order by i.id DESC
     limit #{page.offset},#{page.rows}

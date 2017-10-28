@@ -10,13 +10,13 @@ import com.cjg.pay.pojo.po.RpAccountHistory;
  * 产品对应于页面的实体类
  */
 public class RpAccountHistoryCustom extends RpAccountHistory {
-    private String catName;
+    private String userName;
 
-    public String getCatName() {
-        return catName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setCatName(String catName) {
-        this.catName = catName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

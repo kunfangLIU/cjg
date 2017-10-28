@@ -6,7 +6,7 @@
     a.id, a.create_time as createTime, a.edit_time as editTime, a.version, a.remark, a.account_no as accountNo,
     a.amount, a.balance, a.fund_direction as fundDirection, a.is_allow_sett as isAllowSett,
     a.is_complete_sett as isCompleteSett, a.request_no as requestNo, a.bank_trx_no as bankTrxNo,
-    a.trx_type as trxType, a.risk_day as riskDay, a.user_no as userNo
+    a.trx_type as trxType, a.risk_day as riskDay, a.user_no as userNo,c.user_name as userName
   </sql>
   <sql id="Where_Clause">
     <where>
@@ -19,6 +19,8 @@
     SELECT
     <include refid="Base_Column_List"/>
     from rp_account_history a
+    left join rp_user_info c
+    on a.user_no = c.user_no
     <include refid="Where_Clause"/>
     order by a.id DESC
     limit #{page.offset},#{page.rows}
