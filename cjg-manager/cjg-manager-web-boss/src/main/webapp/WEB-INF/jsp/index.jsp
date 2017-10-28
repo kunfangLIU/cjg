@@ -45,7 +45,7 @@
 		</div>
 		<div title="用户管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
 			<ul class="easyui-tree">
-				<li data-options="attributes:{'href':''}">用户信息</li>
+				<li data-options="attributes:{'href':'userInfo-list'}">用户信息</li>
 			</ul>
 		</div>
 		<div title="交易管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
