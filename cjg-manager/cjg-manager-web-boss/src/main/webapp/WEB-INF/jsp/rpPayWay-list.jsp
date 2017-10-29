@@ -1,18 +1,11 @@
 <%--
   User: Administrator
   Date: 2017/10/28
-  Time: 12:06
+  Time: 18:21
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" %>
 <table id="dg"></table>
 <div id="toolbar">
-    <div style="padding: 5px; background-color: #fffcf9;">
-        <label>用户名称：</label>
-        <input class="easyui-textbox" type="text" id="userName">
-        <!--http://www.cnblogs.com/wisdomoon/p/3330856.html-->
-        <!--注意：要加上type="button",默认行为是submit-->
-        <button onclick="searchForm()" type="button" class="easyui-linkbutton">搜索</button>
-    </div>
     <div>
         <button onclick="add()" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</button>
         <button onclick="edit()" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</button>
@@ -23,11 +16,7 @@
 <table id="dg"></table>
 
 <script>
-    function searchForm(){
-        $('#dg').datagrid('load',{
-            userName:$('#userName').val()
-        });
-    }
+
     function  add() {
         console.log('add');
     }
@@ -60,7 +49,7 @@
                 //ajax提交数组给后台
                 $.post(
                     //url:提交给后台的哪个动作去处理，只有第一个参数是必选的，其余的都是可选项
-                    'userName/delete',
+                    'rpPayProducts/delete',
                     //data:提交哪些数据给后台进行处理
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
@@ -82,17 +71,22 @@
         toolbar:'#toolbar',
         fit:true,
         pagination:true,
-        url:'userInfos',
+        url:'rpPayWays',
         columns:[[
             {field:'ck',checkbox:true},
             {field:'id',title:'序号',width:100},
-            {field:'userNo',title:'用户编号',width:100},
-            {field:'userName',title:'用户名称',width:100},
-            {field:'accountNo',title:'账户编号',width:100},
-            {field:'status',title:'状态',width:100},
+            {field:'payWayCode',title:'支付方式编号',width:100},
+            {field:'payWayName',title:'支付方式名称',width:100},
+            {field:'payTypeCode',title:'支付类型编号',width:100},
+            {field:'payTypeName',title:'支付类型名称',width:100},
+            {field:'payRate',title:'费率',width:100},
             {field:'createTime',title:'创建时间',formatter:function(value,row,index){
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
+
+            {field:'auditStatus',title:'操作',width:100 ,}
+
         ]]
     });
+
 </script>

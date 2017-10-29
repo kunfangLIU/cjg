@@ -37,5 +37,5 @@ public interface RpPayProductService {
      * @param ids
      * @return
      */
-    int updateProductsByIds(String b,List<String> ids);
+    int updateProductsByIds(String b, List<String> ids);
 }

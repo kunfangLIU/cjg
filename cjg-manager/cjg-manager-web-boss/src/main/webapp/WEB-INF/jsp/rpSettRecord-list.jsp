@@ -1,7 +1,7 @@
 <%--
   User: Administrator
-  Date: 2017/10/28
-  Time: 12:06
+  Date: 2017/10/29
+  Time: 18:04
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <table id="dg"></table>
@@ -82,17 +82,23 @@
         toolbar:'#toolbar',
         fit:true,
         pagination:true,
-        url:'userInfos',
+        url:'settRecords',
         columns:[[
             {field:'ck',checkbox:true},
             {field:'id',title:'序号',width:100},
-            {field:'userNo',title:'用户编号',width:100},
-            {field:'userName',title:'用户名称',width:100},
-            {field:'accountNo',title:'账户编号',width:100},
-            {field:'status',title:'状态',width:100},
+            {field:'userName',title:'用户名',width:100},
+            {field:'settAmount',title:'结算金额',width:100},
+            {field:'bankName',title:'银行名称',width:100},
+            {field:'bankAccountName',title:'开户名',width:100},
+            {field:'bankCode',title:'开户编号',width:100},
+            {field:'mobileNo',title:'开户手机号',width:100},
+            {field:'settStatus',title:'结算状态',width:100},
             {field:'createTime',title:'创建时间',formatter:function(value,row,index){
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
+            {field:'remark',title:'操作',width:100 ,formatter: function(value,row,index){
+                return '<a style="color:blue" href="${pageContext.request.contextPath}/payWays" >查看</a>';
+            }}
         ]]
     });
-</script>
+    </script>

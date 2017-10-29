@@ -48,10 +48,9 @@
 				<li data-options="attributes:{'href':'userInfo-list'}">用户信息</li>
 			</ul>
 		</div>
-		<div title="交易管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
+		<div title="结算管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
 			<ul class="easyui-tree">
-				<li data-options="attributes:{'href':'listPaymentOrder'}">支付订单管理</li>
-				<li data-options="attributes:{'href':'listPaymentRecord'}">支付记录管理</li>
+				<li data-options="attributes:{'href':'rpSettRecord-list'}">支付记录管理</li>
 			</ul>
 		</div>
 	</div>

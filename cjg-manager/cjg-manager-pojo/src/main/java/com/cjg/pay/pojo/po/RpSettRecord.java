@@ -4,65 +4,65 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class RpSettRecord {
-    private String id;
+    private String id;//编号
 
-    private Integer version;
+    private Integer version;//版本号
 
-    private Date createTime;
+    private Date createTime;//创建时间
 
-    private Date editTime;
+    private Date editTime;//更新时间
 
-    private String settMode;
+    private String settMode;//结算发起方式
 
-    private String accountNo;
+    private String accountNo;//账户编号
 
-    private String userNo;
+    private String userNo;//用户编号
 
-    private String userName;
+    private String userName;//用户名
 
-    private String userType;
+    private String userType;//用户类型
 
-    private Date settDate;
+    private Date settDate;//结算日期
 
-    private String bankCode;
+    private String bankCode;//银行编码
 
-    private String bankName;
+    private String bankName;//银行名称
 
-    private String bankAccountName;
+    private String bankAccountName;//开户名
 
-    private String bankAccountNo;
+    private String bankAccountNo;//开户编号
 
-    private String bankAccountType;
+    private String bankAccountType;//开户类型
 
-    private String country;
+    private String country;//开户所在国家
 
-    private String province;
+    private String province;//开户所在省份
 
-    private String city;
+    private String city;//开户所在城市
 
-    private String areas;
+    private String areas;//开户所在地区
 
-    private String bankAccountAddress;
+    private String bankAccountAddress;//银行全称
 
-    private String mobileNo;
+    private String mobileNo;//收款人手机号
 
-    private BigDecimal settAmount;
+    private BigDecimal settAmount;//结算金额
 
-    private BigDecimal settFee;
+    private BigDecimal settFee;//结算手续费
 
-    private BigDecimal remitAmount;
+    private BigDecimal remitAmount;//结算打款金额
 
-    private String settStatus;
+    private String settStatus;//结算状态
 
-    private Date remitConfirmTime;
+    private Date remitConfirmTime;//打款确认时间
 
-    private String remark;
+    private String remark;//描述
 
-    private String remitRemark;
+    private String remitRemark;//打款备注
 
-    private String operatorLoginname;
+    private String operatorLoginname;//操作员登录名
 
-    private String operatorRealname;
+    private String operatorRealname;//操作员姓名
 
     public String getId() {
         return id;

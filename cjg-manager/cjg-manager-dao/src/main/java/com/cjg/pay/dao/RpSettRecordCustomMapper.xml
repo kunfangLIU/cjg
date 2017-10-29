@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cjg.pay.dao.RpSettRecordCustomMapper" >
+  <sql id="Base_Column_List" >
+    i.id, version, i.create_time as createTime, i.edit_time as editTime, i.sett_mode as settMode,
+     i.account_no as accountNo, i.user_no as userNo, i.user_name as userName, i.user_type as userType,
+    i.sett_date as settDate, i.bank_code as bankCode, i.bank_name as bankName, i.bank_account_name as bankAccountName,
+    i.bank_account_no as bankAccountNo, i.bank_account_type as bankAccountType,
+    i.country, i.province, i.city, i.areas, i.bank_account_address as bankAccountAddress, i.mobile_no as mobileNo,
+    i.sett_amount as settAmount, i.sett_fee as settFee, i.remit_amount as remitAmount, i.sett_status as settStatus,
+    i.remit_confirm_time as remitConfirmTime, i.remark, i.remit_remark as remitRemark,
+    i.operator_loginname as operatorLoginname,operator_realname as operatorRealname
+  </sql>
+<sql id="Where_Clause">
+  <where>
+  <if test="query !=null and query.userName != null and query.userName != '' ">
+    and i.user_name like '%${query.userName}%'
+  </if>
+  </where>
+</sql>
+  <select id="listSettRecords" resultType="com.cjg.pay.pojo.vo.RpSettRecordCustom">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from rp_sett_record i
+    <include refid="Where_Clause"/>
+    order by i.id DESC
+    limit #{page.offset},#{page.rows}
+  </select>
+  <select id="countSettRecords" resultType="long">
+  SELECT
+  COUNT(*)
+  FROM  rp_sett_record i
+  <include refid="Where_Clause"/>
+    order by i.id DESC
+  </select>
+
+</mapper>

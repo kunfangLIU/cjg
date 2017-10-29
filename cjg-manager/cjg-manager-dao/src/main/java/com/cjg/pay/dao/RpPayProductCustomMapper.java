@@ -12,9 +12,9 @@ public interface RpPayProductCustomMapper {
 /**
  * 查询所有总记录数
  */
-    long countProducts(Map<String,Object> map);
+    long countProducts(Map<String, Object> map);
     /**
      * 分页查询出商品集合
      */
-    List<RpPayProductCustom> listProductByPage(Map<String,Object> map);
+    List<RpPayProductCustom> listProductByPage(Map<String, Object> map);
 }
