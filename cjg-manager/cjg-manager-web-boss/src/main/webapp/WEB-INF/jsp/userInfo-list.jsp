@@ -4,7 +4,7 @@
   Time: 12:06
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<table id="dg"></table>
+<table id="sg"></table>
 <div id="toolbar">
     <div style="padding: 5px; background-color: #fffcf9;">
         <label>用户名称：</label>
@@ -20,11 +20,11 @@
     </div>
 </div>
 
-<table id="dg"></table>
+<table id="sg"></table>
 
 <script>
     function searchForm(){
-        $('#dg').datagrid('load',{
+        $('#sg').datagrid('load',{
             userName:$('#userName').val()
         });
     }
@@ -42,7 +42,7 @@
     }
     function  remove() {
         //获取选中的行
-        var selectRows = $('#dg').datagrid('getSelections');
+        var selectRows = $('#sg').datagrid('getSelections');
         //没有选中任何行
         if(selectRows.length == 0){
             $.messager.alert('提示','未选中记录','warning');
@@ -65,7 +65,7 @@
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
                     function(data){
-                        $('#dg').datagrid('reload');
+                        $('#sg').datagrid('reload');
                     },
                     //datatype:返回的数据类型
                     'json'
@@ -76,7 +76,7 @@
     }
 
     /*初始化数据表格*/
-    $('#dg').datagrid({
+    $('#sg').datagrid({
         pageSize:10,
         /*pageList:[20,40,50],*/
         toolbar:'#toolbar',

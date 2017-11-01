@@ -21,7 +21,6 @@ public interface RpPayProductService {
      * 按主键查询产品
      */
     RpPayProduct getById(String rpPayProductId);
-
     /**
      * 不带分页查询所有产品
      */
@@ -30,7 +29,6 @@ public interface RpPayProductService {
      * 带分页查询所有产品
      */
     Result<RpPayProductCustom> listRpPayProducts(Page page, RpPayProductQuery query);
-
     /**
      * 通过id批量修改产品状态
      * @param b
@@ -38,4 +36,5 @@ public interface RpPayProductService {
      * @return
      */
     int updateProductsByIds(String b, List<String> ids);
+
 }

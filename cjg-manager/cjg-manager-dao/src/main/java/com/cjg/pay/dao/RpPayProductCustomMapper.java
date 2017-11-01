@@ -17,4 +17,5 @@ public interface RpPayProductCustomMapper {
      * 分页查询出商品集合
      */
     List<RpPayProductCustom> listProductByPage(Map<String, Object> map);
+
 }

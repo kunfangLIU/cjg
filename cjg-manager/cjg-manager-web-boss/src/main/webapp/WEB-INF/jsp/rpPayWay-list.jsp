@@ -4,7 +4,7 @@
   Time: 18:21
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" %>
-<table id="dg"></table>
+<table id="tg"></table>
 <div id="toolbar">
     <div>
         <button onclick="add()" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</button>
@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<table id="dg"></table>
+<table id="tg"></table>
 
 <script>
 
@@ -31,7 +31,7 @@
     }
     function  remove() {
         //获取选中的行
-        var selectRows = $('#dg').datagrid('getSelections');
+        var selectRows = $('#tg').datagrid('getSelections');
         //没有选中任何行
         if(selectRows.length == 0){
             $.messager.alert('提示','未选中记录','warning');
@@ -54,7 +54,7 @@
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
                     function(data){
-                        $('#dg').datagrid('reload');
+                        $('#tg').datagrid('reload');
                     },
                     //datatype:返回的数据类型
                     'json'
@@ -65,7 +65,7 @@
     }
 
     /*初始化数据表格*/
-    $('#dg').datagrid({
+    $('#tg').datagrid({
         pageSize:10,
         /*pageList:[20,40,50],*/
         toolbar:'#toolbar',

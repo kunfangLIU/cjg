@@ -51,4 +51,5 @@ public class RpPayProductAction {
     public int updateProductsByIds(@RequestParam("ids[]") List<String> ids ){
         return  rpPayProductService.updateProductsByIds( (String) "DELETE",ids);
    }
+
 }

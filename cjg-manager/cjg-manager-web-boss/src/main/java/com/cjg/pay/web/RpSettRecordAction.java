@@ -9,9 +9,9 @@ import com.cjg.pay.service.RpSettRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -27,9 +27,11 @@ public class RpSettRecordAction {
     @Autowired
     RpSettRecordService rpSettRecordService;
     @ResponseBody
-    @RequestMapping(value = "/settRecords/{settRecordId}",method = RequestMethod.GET)
-    public RpSettRecord getBySettRecordId(@PathVariable  String settRecordId){
-        return  rpSettRecordService.getBySettRecordId(settRecordId);
+    @RequestMapping("/showSettRecordId")
+    public String getBySettRecordId(@PathVariable String settRecordId, Model model){
+        RpSettRecord recordId = rpSettRecordService.getBySettRecordId(settRecordId);
+        model.addAttribute("settRecordId",recordId);
+        return "settRecordInfo";
     }
     @ResponseBody
     @RequestMapping("/settRecords")

@@ -8,7 +8,6 @@
   </sql>
   <sql id="Where_Clause">
     <where>
-      i.status != 'DELETE'
       <if test="query != null and query.productName != null and query.productName != '' ">
         and i.product_name like '%${query.productName}%'
       </if>
@@ -17,14 +16,15 @@
       </if>
     </where>
   </sql>
-<select id="listProductByPage" parameterType="com.cjg.pay.dto.Page" resultType="com.cjg.pay.pojo.vo.RpPayProductCustom">
-select 
-<include refid="Base_Column_List" />
-  from rp_pay_product i
-  <include refid="Where_Clause"/>
-order by i.id desc
-  limit #{page.offset},#{page.rows}
-</select>
+  <select id="listProductByPage"  resultType="com.cjg.pay.pojo.vo.RpPayProductCustom">
+    SELECT
+    <include refid="Base_Column_List" />
+    from rp_pay_product i
+    <include refid="Where_Clause"/>
+    order by i.id desc
+    limit #{page.offset},#{page.rows}
+  </select>
+
   <select id="countProducts" resultType="long">
 select
 count(*)

@@ -4,7 +4,7 @@
   Time: 20:04
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" %>
-<table id="dg"></table>
+<table id="rg"></table>
 <div id="toolbar">
     <div style="padding: 5px; background-color: #fffcf9;">
         <label>支付产品名称：</label>
@@ -27,11 +27,11 @@
     </div>
 </div>
 
-<table id="dg"></table>
+<table id="rg"></table>
 
 <script>
     function searchForm(){
-        $('#dg').datagrid('load',{
+        $('#rg').datagrid('load',{
             productName:$('#productName').val(),
             status:$('#status').combobox('getValue')
         });
@@ -50,7 +50,7 @@
     }
     function  remove() {
         //获取选中的行
-        var selectRows = $('#dg').datagrid('getSelections');
+        var selectRows = $('#rg').datagrid('getSelections');
         //没有选中任何行
         if(selectRows.length == 0){
             $.messager.alert('提示','未选中记录','warning');
@@ -73,7 +73,7 @@
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
                     function(data){
-                        $('#dg').datagrid('reload');
+                        $('#rg').datagrid('reload');
                     },
                     //datatype:返回的数据类型
                     'json'
@@ -84,7 +84,7 @@
     }
 
     /*初始化数据表格*/
-    $('#dg').datagrid({
+    $('#rg').datagrid({
         pageSize:10,
         /*pageList:[20,40,50],*/
         toolbar:'#toolbar',
@@ -116,8 +116,11 @@
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
 
-            {field:'auditStatus',title:'操作',width:100 ,formatter: function(value,row,index){
-                return '<a style="color:blue" href="${pageContext.request.contextPath}/payWays" >查看支付方式</a>';
+            {field:'payWayCode',title:'操作',width:100 ,formatter: function(value,row,index){
+
+              var id = row.productCode;
+              var url = "${pageContext.request.contextPath}/selectRpPayWays?id="+id;
+                return '<a style="color:blue" href="'+url+'" >查看支付方式</a>'
             }}
 
         ]]

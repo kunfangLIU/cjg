@@ -71,4 +71,6 @@ public class RpPayProductServiceImpl implements RpPayProductService {
         return  rpPayProductDao.updateByExampleSelective(rpPayProduct,example);
 
     }
+
+
 }

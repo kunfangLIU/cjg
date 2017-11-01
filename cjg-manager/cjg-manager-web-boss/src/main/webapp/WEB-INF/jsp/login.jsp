@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>系统登录 - 超市账单管理系统</title>
+    <title>系统登录 - 藏金阁支付后台</title>
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript">

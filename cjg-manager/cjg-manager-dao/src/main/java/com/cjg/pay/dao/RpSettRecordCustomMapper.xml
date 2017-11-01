@@ -9,7 +9,7 @@
     i.country, i.province, i.city, i.areas, i.bank_account_address as bankAccountAddress, i.mobile_no as mobileNo,
     i.sett_amount as settAmount, i.sett_fee as settFee, i.remit_amount as remitAmount, i.sett_status as settStatus,
     i.remit_confirm_time as remitConfirmTime, i.remark, i.remit_remark as remitRemark,
-    i.operator_loginname as operatorLoginname,operator_realname as operatorRealname
+    i.operator_loginname as operatorLoginname,i.operator_realname as operatorRealname
   </sql>
 <sql id="Where_Clause">
   <where>

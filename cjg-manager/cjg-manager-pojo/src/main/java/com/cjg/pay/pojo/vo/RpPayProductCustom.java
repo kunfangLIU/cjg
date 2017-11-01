@@ -10,13 +10,13 @@ import com.cjg.pay.pojo.po.RpPayProduct;
  * 产品对应于页面的实体类
  */
 public class RpPayProductCustom extends RpPayProduct {
-    private String catName;
+    private String payWayCode;
 
-    public String getCatName() {
-        return catName;
+    public String getPayWayCode() {
+        return payWayCode;
     }
 
-    public void setCatName(String catName) {
-        this.catName = catName;
+    public void setPayWayCode(String payWayCode) {
+        this.payWayCode = payWayCode;
     }
 }

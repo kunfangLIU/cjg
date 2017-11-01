@@ -4,7 +4,8 @@
   Time: 18:04
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<table id="dg"></table>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<table id="ug"></table>
 <div id="toolbar">
     <div style="padding: 5px; background-color: #fffcf9;">
         <label>用户名称：</label>
@@ -20,11 +21,11 @@
     </div>
 </div>
 
-<table id="dg"></table>
+<table id="ug"></table>
 
 <script>
     function searchForm(){
-        $('#dg').datagrid('load',{
+        $('#ug').datagrid('load',{
             userName:$('#userName').val()
         });
     }
@@ -42,7 +43,7 @@
     }
     function  remove() {
         //获取选中的行
-        var selectRows = $('#dg').datagrid('getSelections');
+        var selectRows = $('#ug').datagrid('getSelections');
         //没有选中任何行
         if(selectRows.length == 0){
             $.messager.alert('提示','未选中记录','warning');
@@ -65,7 +66,7 @@
                     {'ids[]':ids},
                     //function:处理后成功回调的函数
                     function(data){
-                        $('#dg').datagrid('reload');
+                        $('#ug').datagrid('reload');
                     },
                     //datatype:返回的数据类型
                     'json'
@@ -76,7 +77,7 @@
     }
 
     /*初始化数据表格*/
-    $('#dg').datagrid({
+    $('#ug').datagrid({
         pageSize:10,
         /*pageList:[20,40,50],*/
         toolbar:'#toolbar',
@@ -97,8 +98,9 @@
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
             {field:'remark',title:'操作',width:100 ,formatter: function(value,row,index){
-                return '<a style="color:blue" href="${pageContext.request.contextPath}/payWays" >查看</a>';
+                return '<a style="color:blue" href="${pageContext.request.contextPath}/showSettRecordId.action?id = ${settRecordId.id}">查看</a>';
             }}
-        ]]
-    });
-    </script>
+
+]]
+});
+</script>
