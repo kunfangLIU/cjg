@@ -98,7 +98,9 @@
                 return moment(value).format('   YYYY MM Do, h:mm:ss ');
             }},
             {field:'remark',title:'操作',width:100 ,formatter: function(value,row,index){
-                return '<a style="color:blue" href="${pageContext.request.contextPath}/showSettRecordId.action?id = ${settRecordId.id}">查看</a>';
+                var id = row.id;
+                var url = "${pageContext.request.contextPath}/showSettRecord?id="+id;
+                return '<a style="color:blue" href="'+url+'" >查看</a>'
             }}
 
 ]]

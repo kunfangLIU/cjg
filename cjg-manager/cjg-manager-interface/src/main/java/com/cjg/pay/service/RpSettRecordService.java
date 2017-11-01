@@ -6,6 +6,8 @@ import com.cjg.pay.pojo.po.RpSettRecord;
 import com.cjg.pay.pojo.vo.RpSettRecordCustom;
 import com.cjg.pay.pojo.vo.RpSettRecordQuery;
 
+import java.util.List;
+
 /**
  * User: Administrator
  * Date: 2017/10/29
@@ -29,4 +31,6 @@ public interface RpSettRecordService {
      * @return
      */
     Result<RpSettRecordCustom> listSettRecords(Page page, RpSettRecordQuery query);
+
+    List<RpSettRecord> selectSettRecord(String id);
 }

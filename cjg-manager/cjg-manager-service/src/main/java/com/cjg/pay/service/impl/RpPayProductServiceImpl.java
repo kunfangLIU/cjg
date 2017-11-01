@@ -2,10 +2,13 @@ package com.cjg.pay.service.impl;
 
 import com.cjg.pay.dao.RpPayProductCustomMapper;
 import com.cjg.pay.dao.RpPayProductMapper;
+import com.cjg.pay.dao.RpPayWayMapper;
 import com.cjg.pay.dto.Page;
 import com.cjg.pay.dto.Result;
 import com.cjg.pay.pojo.po.RpPayProduct;
 import com.cjg.pay.pojo.po.RpPayProductExample;
+import com.cjg.pay.pojo.po.RpPayWay;
+import com.cjg.pay.pojo.po.RpPayWayExample;
 import com.cjg.pay.pojo.vo.RpPayProductCustom;
 import com.cjg.pay.pojo.vo.RpPayProductQuery;
 import com.cjg.pay.service.RpPayProductService;
@@ -30,6 +33,8 @@ public class RpPayProductServiceImpl implements RpPayProductService {
     private RpPayProductMapper rpPayProductDao;
     @Autowired
     private RpPayProductCustomMapper rpPayProductCustomDao;
+    @Autowired
+   private  RpPayWayMapper rpPayWayDao;
     @Override
     public RpPayProduct getById(String rpPayProductId) {
         return rpPayProductDao.selectByPrimaryKey(rpPayProductId);
@@ -70,6 +75,15 @@ public class RpPayProductServiceImpl implements RpPayProductService {
         //真正执行查询语句
         return  rpPayProductDao.updateByExampleSelective(rpPayProduct,example);
 
+    }
+
+    @Override
+    public List<RpPayWay> selectRpPayWay(String productCode) {
+        RpPayWayExample example = new RpPayWayExample();
+        RpPayWayExample.Criteria criteria = example.createCriteria();
+        criteria.andPayWayCodeEqualTo(productCode);
+        List<RpPayWay> payWays = rpPayWayDao.selectByExample(example);
+        return payWays;
     }
 
 

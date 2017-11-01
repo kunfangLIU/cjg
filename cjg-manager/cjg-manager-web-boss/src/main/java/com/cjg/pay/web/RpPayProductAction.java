@@ -3,14 +3,17 @@ package com.cjg.pay.web;
 import com.cjg.pay.dto.Page;
 import com.cjg.pay.dto.Result;
 import com.cjg.pay.pojo.po.RpPayProduct;
+import com.cjg.pay.pojo.po.RpPayWay;
 import com.cjg.pay.pojo.vo.RpPayProductCustom;
 import com.cjg.pay.pojo.vo.RpPayProductQuery;
 import com.cjg.pay.service.RpPayProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -51,5 +54,13 @@ public class RpPayProductAction {
     public int updateProductsByIds(@RequestParam("ids[]") List<String> ids ){
         return  rpPayProductService.updateProductsByIds( (String) "DELETE",ids);
    }
-
+    /**
+     * 展示查询支付方式控制层
+     */
+    @RequestMapping("/selectRpPayWays")
+    public String selectRpPayWay( @RequestParam("id") String productCode , Model model, HttpSession session){
+       List<RpPayWay> list =  rpPayProductService.selectRpPayWay(productCode);
+        model.addAttribute("list",list);
+        return  "rpPayWay-list";
+    }
 }

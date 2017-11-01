@@ -3,6 +3,7 @@ package com.cjg.pay.service;
 import com.cjg.pay.dto.Page;
 import com.cjg.pay.dto.Result;
 import com.cjg.pay.pojo.po.RpPayProduct;
+import com.cjg.pay.pojo.po.RpPayWay;
 import com.cjg.pay.pojo.vo.RpPayProductCustom;
 import com.cjg.pay.pojo.vo.RpPayProductQuery;
 
@@ -36,5 +37,7 @@ public interface RpPayProductService {
      * @return
      */
     int updateProductsByIds(String b, List<String> ids);
+
+    List<RpPayWay> selectRpPayWay(String productCode);
 
 }

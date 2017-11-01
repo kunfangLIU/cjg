@@ -4,7 +4,10 @@ import com.cjg.pay.dao.RpSettRecordCustomMapper;
 import com.cjg.pay.dao.RpSettRecordMapper;
 import com.cjg.pay.dto.Page;
 import com.cjg.pay.dto.Result;
+import com.cjg.pay.pojo.po.RpPayWay;
+import com.cjg.pay.pojo.po.RpPayWayExample;
 import com.cjg.pay.pojo.po.RpSettRecord;
+import com.cjg.pay.pojo.po.RpSettRecordExample;
 import com.cjg.pay.pojo.vo.RpSettRecordCustom;
 import com.cjg.pay.pojo.vo.RpSettRecordQuery;
 import com.cjg.pay.service.RpSettRecordService;
@@ -44,5 +47,14 @@ public class RpSettRecordServiceImpl implements RpSettRecordService{
         rs.setTotal(total);
         rs.setRows(rows);
         return rs;
+    }
+
+    @Override
+    public List<RpSettRecord> selectSettRecord(String id) {
+        RpSettRecordExample example = new RpSettRecordExample();
+        RpSettRecordExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(id);
+        List<RpSettRecord> records = rpSettRecordDao.selectByExample(example);
+        return records;
     }
 }

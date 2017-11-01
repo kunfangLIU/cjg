@@ -24,7 +24,15 @@
     order by i.id desc
     limit #{page.offset},#{page.rows}
   </select>
-
+  <select id="selectRpPayWay" resultType="com.cjg.pay.pojo.vo.RpPayProductCustom">
+    select
+    <include refid="Base_Column_List" />
+    from rp_pay_product i
+    left join rp_pay_way c
+    on i.product_code = c.pay_way_code
+    <include refid="Where_Clause"/>
+    order by i.id desc
+  </select>
   <select id="countProducts" resultType="long">
 select
 count(*)
